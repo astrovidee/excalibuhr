@@ -1,15 +1,14 @@
 from excalibuhr import pipeline
 
 workpath = './'
-night = '2023-06-06'
+night = '2024-02-27'
 
 ppl = pipeline.CriresPipeline(
                               workpath, night=night, obs_mode='nod',
+                            
                               num_processes=4, clean_start=False
                              )
+username = 'vidyav1' #your ESO username
+program_id = '110.23RW'
 
-#ppl.extract_header()
-#ppl.cal_dark()
-#ppl.cal_flat_raw()
-#ppl.cal_flat_trace()
-ppl.cal_slit_curve()
+ppl.download_rawdata_eso(login=username, prog_id=program_id)
